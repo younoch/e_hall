@@ -1,4 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+//import LandingHeader from "./components/landing-page/LandingHeader.vue";
 
-createApp(App).mount('#app')
+const app = createApp(App);
+
+//app.component('landing-header', LandingHeader);
+
+app.mount('#app');
+
+
