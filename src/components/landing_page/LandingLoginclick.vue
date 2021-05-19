@@ -1,11 +1,21 @@
    <template>
   <div>
-    <h1>Welcome Back!</h1>
-    <button>Sign in</button>
+    <h1>{{ headMsg }}</h1>
+    <button @click="switchStutus">{{ buttonMsg }}</button>
   </div>
 </template>
    <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  props: ["headMsg", "buttonMsg"],
+  methods: {
+    switchStutus() {
+      this.$emit("switch-stutus");
+    },
+  },
+};
 </script>
 <style scoped>
 div {

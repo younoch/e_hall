@@ -1,12 +1,12 @@
 <template>
   <header>
-    <div class="logo">
+    <router-link to="/subjects" class="logo">
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Android_O_Preview_Logo.png"
         alt="Not found"
       />
       <p class="title">E-Test</p>
-    </div>
+    </router-link>
     <ul>
       <li><button>Source Code</button></li>
       <li><button>Rules</button></li>
@@ -15,17 +15,19 @@
   </header>
 </template>
 <script>
+//parent: App
 export default {};
 </script>
 <style scoped>
 header {
-  background: royalblue;
+  background: #333d79ff;
   height: 40px;
   width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 .logo {
   padding: 5px 20px;
@@ -37,7 +39,6 @@ img {
   height: 30px;
 }
 .title {
-  display: inline-flex;
   font: 22px;
   color: white;
   justify-content: center;
@@ -59,7 +60,7 @@ li {
 }
 button {
   border: none;
-  background: royalblue;
+  background: #333d79ff;
   min-width: 130px;
 
   font-size: 16px;

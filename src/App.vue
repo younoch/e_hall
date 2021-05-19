@@ -1,14 +1,12 @@
 <template>
   <div>
-    <landing-main></landing-main>
+    <the-header></the-header>
+    <router-view class="default"></router-view>
   </div>
 </template>
 
 <script>
-import LandingMain from "./components/landing-page/LandingMain.vue";
-export default {
-  components: { LandingMain },
-};
+export default {};
 </script>
 
 <style>
@@ -20,6 +18,7 @@ export default {
 body {
   font-family: "Roboto";
 }
+
 button {
   font-size: 17px;
   padding: 8px 12px !important;
@@ -32,5 +31,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.default {
+  margin: 0 auto;
 }
 </style>

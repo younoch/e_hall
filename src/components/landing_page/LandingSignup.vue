@@ -1,7 +1,7 @@
 <template>
   <section>
-    <h2>Sign Up as Examinee</h2>
-    <form action="" method="post">
+    <form action="" v-if="formSwitch">
+      <h2>Sign Up as Examine</h2>
       <div class="content">
         <input type="text" name="user_name" id="" placeholder="Full Name" />
 
@@ -47,15 +47,41 @@
         />
         <div class="buttons">
           <button type="reset">Reset</button>
-          <button type="submit">Sign up</button>
+          <router-link to="/subjects">
+            <button type="submit">Sign up</button>
+          </router-link>
         </div>
       </div>
+    </form>
+    <form action="" v-else>
+      <div class="content">
+        <h2>Sign In</h2>
+        <input
+          type="email"
+          name="user_name"
+          id=""
+          placeholder="E-mail Address"
+        />
+        <input
+          type="password"
+          name="user-passord"
+          id=""
+          placeholder="Password"
+        />
+      </div>
+      <router-link to="/subjects">
+        <div class="buttons">
+          <button type="submit">Sign in</button>
+        </div>
+      </router-link>
     </form>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["formSwitch"],
+};
 </script>
 
 <style scoped>
@@ -76,7 +102,7 @@ form {
   align-items: center;
 }
 h2 {
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   color: #274b7f;
 }
 .content {
@@ -117,6 +143,10 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+a {
+  padding: 0;
+  margin: 0;
 }
 
 .zero {
