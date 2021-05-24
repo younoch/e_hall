@@ -6,6 +6,7 @@
         <each-subject
           :examinerName="examList.name"
           :subject="examList.subject"
+          :batch="examList.batch"
           :time="examList.time"
         ></each-subject>
       </li>
@@ -23,30 +24,35 @@ export default {
           name: "Annandip",
           subject: "Algorithom",
           time: "123h 34min",
+          batch: "E5, E6",
         },
         {
           id: 2,
           name: "Titow",
           subject: "Microprocesor",
           time: "127h 12min",
+          batch: "E5, E9",
         },
         {
           id: 3,
           name: "Fisal",
           subject: "Fiber Optics",
           time: "103h 07min",
+          batch: "E5, E7, E9",
         },
         {
           id: 4,
           name: "Nasrin",
           subject: "Artificial Int",
           time: "123h 98min",
+          batch: "E10, E6",
         },
         {
           id: 5,
           name: "Syed",
           subject: "Electrical Lab",
           time: "23h 04min",
+          batch: "R10, R11",
         },
       ],
     };

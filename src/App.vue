@@ -10,6 +10,7 @@ export default {};
 </script>
 
 <style>
+
 * {
   box-sizing: border-box;
   margin: 0;

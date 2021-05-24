@@ -47,9 +47,10 @@
         />
         <div class="buttons">
           <button type="reset">Reset</button>
-          <router-link to="/subjects">
-            <button type="submit">Sign up</button>
-          </router-link>
+
+          <button type="submit">
+            <router-link to="/subjects">Sign up</router-link>
+          </button>
         </div>
       </div>
     </form>
@@ -80,6 +81,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      submit: "submit",
+    };
+  },
   props: ["formSwitch"],
 };
 </script>
@@ -143,10 +149,13 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 }
 a {
+  text-decoration: none;
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 .zero {

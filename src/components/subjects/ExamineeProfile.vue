@@ -1,7 +1,8 @@
 <template>
   <div>
     <aside-basecard>
-      <section>
+      <section class="user-part1">
+        <font-awesome-icon icon="user" class="icon" />
         <p class="heading1">USER PROFILE</p>
         <p class="name">{{ name }}</p>
         <p>ID: {{ id }}</p>
@@ -47,10 +48,20 @@ p {
   text-align: center;
   color: white;
 }
+.user-part1 {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon {
+  color: white;
+  font-size: 60px;
+}
 .heading1 {
   color: #89c4e5;
-  font-size: 180%;
-  margin: 20px;
+  font-size: 160%;
+  margin: 10px 20px;
   font-weight: 900;
 }
 .heading2 {
