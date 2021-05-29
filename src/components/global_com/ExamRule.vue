@@ -1,6 +1,6 @@
 <template>
   <section>
-    <aside-basecard>
+    <aside-basecard class="basecard">
       <div>
         <h1>The Esam Rules and Regualtions</h1>
       </div>
@@ -33,7 +33,8 @@
           published, the shedule will over
         </li>
       </ul>
-      
+      <p>Times to go!!</p>
+      <button>Start now</button>
     </aside-basecard>
   </section>
 </template>
@@ -50,6 +51,8 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 80%;
+  min-height: 500px;
 }
 div {
   background: #89c4e5;
@@ -71,5 +74,12 @@ li {
   text-align: left;
   color: white;
   margin: 3px;
+}
+.basecard {
+  position: relative;
+}
+button {
+  position: absolute;
+  bottom: 10px;
 }
 </style>

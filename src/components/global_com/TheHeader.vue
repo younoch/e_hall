@@ -8,9 +8,17 @@
       <p class="title">E-Test</p>
     </router-link>
     <ul>
-      <li><button>Source Code</button></li>
-      <li><button>Rules</button></li>
-      <li><button>Signup</button></li>
+      <li>
+        <button>
+          <router-link to="#">Source Code</router-link>
+        </button>
+      </li>
+      <li>
+        <button><router-link to="#">Rules</router-link></button>
+      </li>
+      <li>
+        <button><router-link to="/log">Signup</router-link></button>
+      </li>
     </ul>
   </header>
 </template>
@@ -73,6 +81,14 @@ button {
 }
 
 button:hover {
+  background: white;
+  color: royalblue;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
   background: white;
   color: royalblue;
 }

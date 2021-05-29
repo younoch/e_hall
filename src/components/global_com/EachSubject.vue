@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/exam_rule">
+  <router-link to="/subjects/exam_rule">
     <section>
       <p>
         <font-awesome-icon icon="user-tie" class="icon" />
