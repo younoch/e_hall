@@ -5,36 +5,14 @@
         <h1>The Esam Rules and Regualtions</h1>
       </div>
       <ul>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" />
-          Don't swithch to any other screen. If you do that the current question
-          will terminate.
-        </li>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" />
-          Each question has between 2 to 8 options; one or more ansewer may
-          correct.
-        </li>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" />
-          In order to pass, you will need to answer at least 40% of the
-          questions correctly.
-        </li>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" />
-          This test best view in Google Chrome 48 or higher on desktop version.
-        </li>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" /> You can't participate
-          one more times with same device
-        </li>
-        <li>
-          <font-awesome-icon icon="gavel" class="icon" /> The result will
-          published, the shedule will over
+        <li v-for="examRule in examRules" :key="examRule">
+          <font-awesome-icon icon="gavel" class="icon" /> {{ examRule }}
         </li>
       </ul>
       <p>Times to go!!</p>
-      <button>Start now</button>
+      <button>
+        <router-link to="/exam/each-question">Start now</router-link>
+      </button>
     </aside-basecard>
   </section>
 </template>
@@ -42,6 +20,18 @@
 import AsideBasecard from "./AsideBasecard.vue";
 export default {
   components: { AsideBasecard },
+  data() {
+    return {
+      examRules: [
+        `Don't swithch to any other screen. If you do that the current question will terminate.`,
+        `Each question has between 2 to 8 options; one or more ansewer may correct.`,
+        `In order to pass, you will need to answer at least 40% of the questions correctly.`,
+        `This test best view in Google Chrome 48 or higher on desktop version.`,
+        `You can't participate one more times with same device`,
+        `The result will published, the shedule will over`,
+      ],
+    };
+  },
 };
 </script>
 <style scoped>
@@ -81,5 +71,9 @@ li {
 button {
   position: absolute;
   bottom: 10px;
+}
+a {
+  text-decoration: none;
+  color: #274b7f;
 }
 </style>
