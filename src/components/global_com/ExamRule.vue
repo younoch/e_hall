@@ -11,7 +11,7 @@
       </ul>
       <p>Times to go!!</p>
       <button>
-        <router-link to="/exam/each-question">Start now</router-link>
+        <router-link :to="`/${selectedExam}/0`">Start now</router-link>
       </button>
     </aside-basecard>
   </section>
@@ -20,6 +20,11 @@
 import AsideBasecard from "./AsideBasecard.vue";
 export default {
   components: { AsideBasecard },
+  computed: {
+    selectedExam() {
+      return this.$store.state.selectedExam;
+    }
+  },
   data() {
     return {
       examRules: [
@@ -30,6 +35,7 @@ export default {
         `You can't participate one more times with same device`,
         `The result will published, the shedule will over`,
       ],
+      tr: 'each_questio'
     };
   },
 };

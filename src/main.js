@@ -13,6 +13,7 @@ import EachSubject from './components/global_com/EachSubject';
 import ExamRule from './components/global_com/ExamRule.vue';
 
 import router from './router.js';
+import vuex  from './vuex.js';
 library.add(fas);// fontesome
 
 const app = createApp(App);
@@ -24,6 +25,7 @@ app.component('exam-rule', ExamRule);
 
 //app.component('landing-header', LandingHeader);
 app.use(router);
+app.use(vuex);
 
 app.component('font-awesome-icon', FontAwesomeIcon); //fontawsome
 

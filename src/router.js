@@ -15,13 +15,12 @@ const router = createRouter({
         { path: '/log', component: LandingMain },
         { path: '/subjects', component: SubjectList },
         {
-            path: '/exam', component: exam, children: [
+            path: '/:exam', component: exam, children: [
+                
+                { path: ':each_question', component: EachQuestion },
                 { path: 'exam_rule', component: ExamRule },
-                { path: 'each-question', component: EachQuestion },
             ]
         },
-
-
         { path: '/:notFound(.*)', component: NotFound },
 
     ]
