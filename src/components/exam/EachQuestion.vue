@@ -20,26 +20,35 @@
 export default {
   data() {
     return {
+      ms: 0,
       quesId: Number(this.$route.params.each_question),
+      numberOfQuestion: this.$store.state.questions[0].basicComputer.length,
+
       question: this.$store.state.questions[0].basicComputer[0].que,
       options: this.$store.state.questions[0].basicComputer[0].options,
-      nextLink: ''
+      nextLink: "",
     };
   },
+
   watch: {
     quesId(value) {
-      this.$route.params.each_question = value;
-      console.log(value);
+      //this.$route.params.each_question = value;
+        this.question = this.$store.state.questions[0].basicComputer[value].que;
+      this.options =
+        this.$store.state.questions[0].basicComputer[value].options;
     },
   },
-  created() {
-    this.quesId(this.quesId);
-  },
+
   methods: {
     nextQuestion() {
-      this.quesId++;
-      this.nextLink = `/basicComputer/${this.quesId}`
-
+      let key = false;
+      if (this.quesId < (this.numberOfQuestion -1)) {
+        this.quesId++;
+      } else key = true;
+      const quesId = this.quesId;
+      if (key) {
+        this.nextLink = `/basicComputer/result`;
+      } else this.nextLink = `/basicComputer/${quesId}`;
     },
   },
 };
@@ -53,13 +62,14 @@ section {
   justify-content: center;
 }
 .base {
-  width: 90%;
+  width: 80%;
   height: 80vh;
   color: aliceblue;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   padding: 40px;
+  text-align: center;
 }
 p {
   font: 1em sans-serif;

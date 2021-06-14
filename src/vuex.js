@@ -68,12 +68,40 @@ const store = createStore({
                     sl:2,
                     que: `Web pages are written using ?`,
                     options: [
-                      `A. FTP`,
-                      `B. HTTP`,
-                      `C. HTML`,
-                      `D. URL`
+                      {
+                        sl: 'A.',
+                        op:`FTP`
+                      },
+                      {
+                        sl: 'B.',
+                        op:`HTTP`
+                      },{
+                        sl: 'C.',
+                        op:`HTML`,
+                      },
+                      {
+                        sl: 'D.',
+                        op:`URL`
+                      },
                     ]
-                  }
+                  },
+                  {
+                    sl:3,
+                    que: `IC stands for`,
+                    options: [
+                      {
+                        sl: 'A.',
+                        op:`Internal Circuit`
+                      },
+                      {
+                        sl: 'B.',
+                        op:`Internal Computer`
+                      },{
+                        sl: 'C.',
+                        op:`Integrated Circuit`,
+                      },
+                    ]
+                  },
                   
                   ]
                 }

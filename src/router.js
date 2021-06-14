@@ -6,6 +6,7 @@ import NotFound from './components/global_com/NotFound';
 import ExamRule from './components/global_com/ExamRule.vue';
 import EachQuestion from './components/exam/EachQuestion.vue';
 import exam from './components/exam/exam.vue';
+import resultMain from './components/results/resultMain.vue'
 
 
 const router = createRouter({
@@ -16,10 +17,10 @@ const router = createRouter({
         { path: '/subjects', component: SubjectList },
         {
             path: '/:exam', component: exam, children: [
-                
-                { path: ':each_question', component: EachQuestion },
+                { path: ':each_question', component: EachQuestion, props: true},
                 { path: 'exam_rule', component: ExamRule },
-            ]
+                { path: 'result', component: resultMain },
+            ],
         },
         { path: '/:notFound(.*)', component: NotFound },
 
