@@ -1,9 +1,10 @@
 <template>
-  <router-link :to="`/${id }/exam_rule`" @click = 'clickedSubject'>
+  <router-link :to="`/${id}/exam_rule`" @click="clickedSubject">
     <section>
       <p>
         <font-awesome-icon icon="user-tie" class="icon" />
-         &nbsp;{{ examinerName }} <!-- $store.state.examList.name -->
+        &nbsp;{{ examinerName }}
+        <!-- $store.state.examList.name -->
       </p>
       <p>
         <font-awesome-icon icon="file-alt" class="icon" /> &nbsp; {{ subject }}
@@ -22,11 +23,18 @@
 <script>
 // parant "main.js"
 export default {
-  props: ["id","examinerName", "subject", "batch", "time"],
+  props: ["id", "examinerName", "subject", "batch", "time"],
   methods: {
     clickedSubject() {
       this.$store.state.selectedExam = this.id;
-    }
+      this.questionSelection();
+    },
+    questionSelection() {
+      this.$store.commit({
+        type: "storeSelectedExam",
+        value: this.id
+      });
+    },
   },
 };
 </script>

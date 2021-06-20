@@ -4,9 +4,9 @@
       <p>Time: 29 secs</p>
       <h2>Question: {{ question }}</h2>
       <form action="">
-        <div v-for="option in options" :key="option.sl">
+        <div v-for="(option, index) in options" :key="index">
           <input type="radio" name="opt:1" id="opt:1" />
-          <label for="opt:1">{{ option.sl }} {{ option.op }}</label
+          <label for="opt:1">{{ index + 1 }}. {{ option }}</label
           ><br />
         </div>
         <router-link :to="nextLink">
@@ -18,14 +18,17 @@
 </template>
 <script>
 export default {
+
+  //Provided from ..\e_hall\src\components\exam\exam.vue
+  //inject: ['subjectIndex'],
+
   data() {
     return {
-      ms: 0,
       quesId: Number(this.$route.params.each_question),
-      numberOfQuestion: this.$store.state.questions[0].basicComputer.length,
-
-      question: this.$store.state.questions[0].basicComputer[0].que,
-      options: this.$store.state.questions[0].basicComputer[0].options,
+      subjectIndex: this.$store.state.saveIndex,
+      numberOfQuestion: this.$store.state.questions[this.subjectIndex].data.length,
+      question: this.$store.state.questions[this.subjectIndex].data[0].que,
+      options: this.$store.state.questions[this.subjectIndex].data[0].options,
       nextLink: "",
     };
   },
@@ -33,22 +36,27 @@ export default {
   watch: {
     quesId(value) {
       //this.$route.params.each_question = value;
-        this.question = this.$store.state.questions[0].basicComputer[value].que;
+      this.question = this.$store.state.questions[this.subjectIndex].data[value].que;
       this.options =
-        this.$store.state.questions[0].basicComputer[value].options;
+        this.$store.state.questions[this.subjectIndex].data[value].options;
+        
     },
   },
 
   methods: {
     nextQuestion() {
       let key = false;
-      if (this.quesId < (this.numberOfQuestion -1)) {
+      if (this.quesId < this.numberOfQuestion - 1) {
         this.quesId++;
       } else key = true;
       const quesId = this.quesId;
       if (key) {
-        this.nextLink = `/basicComputer/result`;
-      } else this.nextLink = `/basicComputer/${quesId}`;
+        this.nextLink = `/${this.selectedExam}/result`;
+      } else this.nextLink = `/${this.selectedExam}/${quesId}`;
+      console.log(this.subjectIndex);
+      /* 
+      console.log(this.$store.state.selectedExam);
+      console.log(this.$store.state.questions); */
     },
   },
 };

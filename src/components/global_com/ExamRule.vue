@@ -22,6 +22,7 @@ export default {
   components: { AsideBasecard },
   computed: {
     selectedExam() {
+      
       return this.$store.state.selectedExam;
     }
   },
@@ -37,6 +38,14 @@ export default {
       ],
       tr: 'each_questio'
     };
+  },
+  methods: {
+        questionSelection() {
+      this.$store.commit({
+        type: 'storeSelectedExam',
+        value: this.subjectIn
+      })
+    },
   },
 };
 </script>
