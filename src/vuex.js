@@ -90,17 +90,16 @@ const store = createStore({
           ]
         }
       ],
-      saveIndex: 0
+      // Used in src\components\exam\exam.vue
+      saveIndex: -1
     }
   },
   mutations: {
     storeSelectedExam (state,pay) {
-      //indexOf(state.selectedExam);
       const sl = state.questions.find(
         que => que.subjectId === pay.value
       );
       state.saveIndex = Number(state.questions.indexOf(sl));
-      console.log(state.saveIndex);
     }
   },
 

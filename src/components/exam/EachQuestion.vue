@@ -3,9 +3,9 @@
     <aside-basecard class="base">
       <p>Time: 29 secs</p>
       <h2>Question: {{ question }}</h2>
-      <form action="">
+      <form @submit.prevent="submitForm">
         <div v-for="(option, index) in options" :key="index">
-          <input type="radio" name="opt:1" id="opt:1" />
+          <input type="checkbox" name="opt:1" id="opt:1" />
           <label for="opt:1">{{ index + 1 }}. {{ option }}</label
           ><br />
         </div>
@@ -18,15 +18,14 @@
 </template>
 <script>
 export default {
-
   //Provided from ..\e_hall\src\components\exam\exam.vue
-  //inject: ['subjectIndex'],
+  inject: ["subjectIndex"],
 
   data() {
     return {
       quesId: Number(this.$route.params.each_question),
-      subjectIndex: this.$store.state.saveIndex,
-      numberOfQuestion: this.$store.state.questions[this.subjectIndex].data.length,
+      numberOfQuestion: this.$store.state.questions[this.subjectIndex].data
+        .length,
       question: this.$store.state.questions[this.subjectIndex].data[0].que,
       options: this.$store.state.questions[this.subjectIndex].data[0].options,
       nextLink: "",
@@ -35,11 +34,12 @@ export default {
 
   watch: {
     quesId(value) {
-      //this.$route.params.each_question = value;
-      this.question = this.$store.state.questions[this.subjectIndex].data[value].que;
-      this.options =
-        this.$store.state.questions[this.subjectIndex].data[value].options;
-        
+      this.question = this.$store.state.questions[this.subjectIndex].data[
+        value
+      ].que;
+      this.options = this.$store.state.questions[this.subjectIndex].data[
+        value
+      ].options;
     },
   },
 
@@ -54,10 +54,8 @@ export default {
         this.nextLink = `/${this.selectedExam}/result`;
       } else this.nextLink = `/${this.selectedExam}/${quesId}`;
       console.log(this.subjectIndex);
-      /* 
-      console.log(this.$store.state.selectedExam);
-      console.log(this.$store.state.questions); */
     },
+    submitForm() {},
   },
 };
 </script>

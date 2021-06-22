@@ -4,7 +4,6 @@
       <p>
         <font-awesome-icon icon="user-tie" class="icon" />
         &nbsp;{{ examinerName }}
-        <!-- $store.state.examList.name -->
       </p>
       <p>
         <font-awesome-icon icon="file-alt" class="icon" /> &nbsp; {{ subject }}
@@ -32,7 +31,7 @@ export default {
     questionSelection() {
       this.$store.commit({
         type: "storeSelectedExam",
-        value: this.id
+        value: this.id,
       });
     },
   },

@@ -17,15 +17,10 @@
   </section>
 </template>
 <script>
+//Parent src\components\exam\exam.vue
 import AsideBasecard from "./AsideBasecard.vue";
 export default {
   components: { AsideBasecard },
-  computed: {
-    selectedExam() {
-      
-      return this.$store.state.selectedExam;
-    }
-  },
   data() {
     return {
       examRules: [
@@ -36,17 +31,16 @@ export default {
         `You can't participate one more times with same device`,
         `The result will published, the shedule will over`,
       ],
-      tr: 'each_questio'
+      tr: "each_questio",
     };
   },
-  methods: {
-        questionSelection() {
-      this.$store.commit({
-        type: 'storeSelectedExam',
-        value: this.subjectIn
-      })
+  computed: {
+    selectedExam() {
+      console.log(this.$store.state.saveIndex);
+      return this.$store.state.selectedExam;
     },
   },
+  methods: {},
 };
 </script>
 <style scoped>

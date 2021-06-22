@@ -1,21 +1,17 @@
-<template >
-  <router-view @click.once="questionSelection"></router-view>
+<template>
+  <router-view></router-view>
 </template>
 <script>
 export default {
-/*   provide() {
+  provide() {
     return {
-      subjectIndex: this.subjectIn
+      subjectIndex: this.subjectIn,
     };
-  }, */
-
-  methods: {
-    questionSelection() {
-      this.$store.commit({
-        type: 'storeSelectedExam',
-        //value: this.subjectIn
-      })
-    },
+  },
+  data() {
+    return {
+      subjectIn: this.$store.state.saveIndex,
+    };
   },
 };
 </script>
